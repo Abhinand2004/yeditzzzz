@@ -4,16 +4,16 @@ import { motion } from 'framer-motion'
 import { FiPlay } from 'react-icons/fi'
 
 const videos = [
-  { id: 1, embedId: 'dQw4w9WgXcQ', title: 'Birthday Celebration Edit' },
-  { id: 2, embedId: 'jNQXAC9IVRw', title: 'Auto Show Highlights' },
-  { id: 3, embedId: '9bZkp7q19f0', title: 'Event Coverage' },
-  { id: 4, embedId: 'kJQP7kiw5Fk', title: 'Inauguration Ceremony' },
-  { id: 5, embedId: 'RgKAFK5djSk', title: 'Wedding Highlights' },
-  { id: 6, embedId: 'JGwWNGJdvx8', title: 'Corporate Event' },
-  { id: 7, embedId: 'CevxZvSJLk8', title: 'Music Video Edit' },
-  { id: 8, embedId: 'hT_nvWreIhg', title: 'Travel Montage' },
-  { id: 9, embedId: 'fJ9rUzIMcZQ', title: 'Product Showcase' },
-  { id: 10, embedId: 'YQHsXMglC9A', title: 'Festival Recap' },
+  { id: 1, embedId: 'LXWzzG0QDck', title: 'Cooking Time' },
+  { id: 2, embedId: 'GD-N_2LuTew', title: 'Auto Show Highlights' },
+  { id: 3, embedId: 'x7JarRd3zfk', title: 'Nature' },
+  { id: 4, embedId: 'ledfY9acJd0', title: 'Marine World' },
+  { id: 5, embedId: 'brl46JGVujI', title: 'Auto Highlights' },
+  { id: 6, embedId: '5T0jNMmcoqk', title: 'Anangandi' },
+  { id: 7, embedId: '0ffzQpUzw_M', title: 'Anganadi' },
+  { id: 8, embedId: 'itEE8iIl1Ig', title: 'Pooram vibe' },
+  { id: 9, embedId: '4dvuCKaNaQg', title: 'Nature' },
+  { id: 10, embedId: 'D8t2DZMDl_w', title: 'Designers' },
 ]
 
 export default function VideoShowcase() {
@@ -48,13 +48,18 @@ export default function VideoShowcase() {
             >
               <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-900 border border-white/5 hover:border-white/20 transition-all duration-500 shadow-2xl shadow-black/50">
                 <iframe
-                  src={`https://www.youtube.com/embed/${video.embedId}`}
+                 src={`https://www.youtube.com/embed/${video.embedId}`}
+
                   title={video.title}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   className="absolute inset-0 w-full h-full"
                 />
-              </div>
+              </div>  
+
+
+
+
               <div className="mt-4 flex items-center gap-3">
                 <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center">
                   <FiPlay className="text-white/60 text-xs" />

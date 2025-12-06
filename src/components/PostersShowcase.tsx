@@ -6,14 +6,12 @@ import Image from 'next/image'
 import { FiX, FiZoomIn } from 'react-icons/fi'
 
 const posters = [
-  { id: 1, src: 'https://picsum.photos/seed/poster1/600/800', title: 'Event Poster Design' },
-  { id: 2, src: 'https://picsum.photos/seed/poster2/600/800', title: 'Brand Identity' },
-  { id: 3, src: 'https://picsum.photos/seed/poster3/600/800', title: 'Social Media Graphics' },
-  { id: 4, src: 'https://picsum.photos/seed/poster4/600/800', title: 'Music Poster' },
-  { id: 5, src: 'https://picsum.photos/seed/poster5/600/800', title: 'Product Showcase' },
-  { id: 6, src: 'https://picsum.photos/seed/poster6/600/800', title: 'Typography Art' },
-  { id: 7, src: 'https://picsum.photos/seed/poster7/600/800', title: 'Festival Banner' },
-  { id: 8, src: 'https://picsum.photos/seed/poster8/600/800', title: 'Corporate Design' },
+  { id: 1, src: "/travel.jpg", title: 'Travel' },
+  { id: 2, src: '/djposter.jpg', title: 'Djposter' },
+  { id: 3, src: '/pooramposter.jpg', title: 'Pooram poster' },
+  { id: 4, src: '/kallan.jpg', title: 'Warning poster' },
+  { id: 5, src: '/trip.jpg', title: 'Trip poster' },
+  { id: 6, src: '/onam.jpg', title: 'Onam' }
 ]
 
 export default function PostersShowcase() {
@@ -41,7 +39,7 @@ export default function PostersShowcase() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {posters.map((poster, index) => (
             <motion.div
-              key={poster.id}
+              key={poster.src}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
