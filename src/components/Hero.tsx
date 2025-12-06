@@ -6,11 +6,15 @@ import { FaInstagram } from 'react-icons/fa'
 
 export default function Hero() {
   return (
-    <section className="
-      min-h-screen w-full bg-black text-white 
-      flex flex-col justify-start 
-      pt-24 px-5 md:px-20 relative overflow-hidden
-    ">
+    <section
+      className="
+        min-h-screen w-full bg-black text-white 
+        flex flex-col 
+        justify-start md:justify-center     /* DESKTOP vertical center */
+        pt-24 px-5 md:px-20 
+        relative overflow-hidden
+      "
+    >
 
       {/* SUBTLE GRAIN OVERLAY */}
       <div
