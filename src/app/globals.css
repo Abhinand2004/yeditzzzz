@@ -13,6 +13,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, fill 0.3s ease, stroke 0.3s ease;
 }
 
 html,
@@ -26,6 +27,7 @@ body {
   background: rgb(var(--background-rgb));
   font-family: 'Inter', system-ui, sans-serif;
   min-height: 100vh;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 ::-webkit-scrollbar {
@@ -48,4 +50,20 @@ body {
 ::selection {
   background: rgba(255, 255, 255, 0.2);
   color: #ffffff;
+  transition: background 0.2s ease;
+}
+
+/* Smooth transitions for interactive elements */
+a, button, .transition-all {
+  transition: all 0.3s ease;
+}
+
+/* Smooth hover effects */
+a:hover, button:hover {
+  transition: all 0.2s ease;
+}
+
+/* Smooth focus states */
+*:focus, *:focus-visible {
+  transition: box-shadow 0.2s ease;
 }
