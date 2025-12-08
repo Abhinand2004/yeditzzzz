@@ -6,97 +6,112 @@ import { FaInstagram } from 'react-icons/fa'
 
 export default function Hero() {
   return (
-    <section
-      className="
-        min-h-screen w-full bg-black text-white 
-        flex flex-col 
-        justify-start md:justify-center
-        pt-24 px-5 md:px-20 
-        relative overflow-hidden
-      "
-    >
+    // Main Section - Full screen and centered padding
+    <section className="relative min-h-screen w-full bg-black text-white flex flex-col justify-center pt-28 pb-16 px-5 sm:px-8 md:px-16 overflow-hidden">
 
-      {/* SUBTLE GRAIN OVERLAY */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.15]"
-        style={{
-          backgroundImage:
-            "url('https://grainy-gradients.vercel.app/noise.svg')",
-        }}
-      />
+      {/* ====== BACKGROUND GLOWS ====== */}
+      <div className="pointer-events-none absolute inset-0 z-[0]">
+        <div className="absolute -top-32 left-0 h-72 w-72 bg-fuchsia-500/20 blur-[120px] rounded-full" />
+        <div className="absolute top-1/2 -right-20 h-80 w-80 bg-purple-600/20 blur-[130px] rounded-full" />
+        <div className="absolute bottom-0 right-10 h-80 w-80 bg-cyan-500/20 blur-[150px] rounded-full" />
 
-      {/* MAIN TITLE */}
-      <motion.h1
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="text-3xl sm:text-4xl md:text-7xl font-extrabold leading-tight tracking-tight z-10"
-      >
-        <span className="block">Crafting Visuals</span>
-        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-white/60">
-          That Define Identity.
-        </span>
-      </motion.h1>
-
-      {/* DESCRIPTION */}
-      <motion.p
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
-        className="text-base sm:text-lg md:text-xl text-gray-300 max-w-xl mt-4 mb-8 leading-relaxed z-10"
-      >
-        I help brands communicate through clean design, modern visuals, and emotionally impactful edits.
-        Strategy first. Design with intention.
-      </motion.p>
-
-      {/* CTA */}
-      <motion.div
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.25, ease: 'easeOut' }}
-        className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 z-10"
-      >
-        <a
-          href="https://www.instagram.com/yeditzzz_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-3 bg-white text-black px-5 py-3 rounded-full font-semibold hover:bg-gray-200 transition-all"
-        >
-          <FaInstagram /> @yedits
-        </a>
-
-        <button className="border border-white/30 px-6 py-3 rounded-full hover:bg-white hover:text-black transition-all">
-          View Work
-        </button>
-      </motion.div>
-
-      {/* IMAGE CARD — LIGHT ANIMATION */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.96 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
-        className="
-          w-full max-w-sm mt-10 rounded-xl overflow-hidden shadow-xl 
-          border border-white/10 
-          md:absolute md:right-20 md:bottom-20 md:w-96 md:h-[420px] md:mt-0
-        "
-      >
-        <Image
-          src="/user.jpg"
-          alt="Portfolio Visual"
-          width={600}
-          height={800}
-          priority
-          className="w-full h-64 md:h-full object-cover"
+        {/* Subtle grid */}
+        <div className="absolute inset-0 opacity-[0.10]
+          [background-image:radial-gradient(circle_at_top,_#ffffff22_0,_transparent_60%),
+          linear-gradient(to_right,_#ffffff0a_1px,_transparent_1px),
+          linear-gradient(to_bottom,_#ffffff0a_1px,_transparent_1px)]
+          [background-size:100%_100%,90px_90px,90px_90px]"
         />
-      </motion.div>
+      </div>
 
-      {/* BACKGROUND TYPOGRAPHY */}
+      {/* 2. Main Content Wrapper: **max-w-7xl** for more space utilization */}
+      <div className="relative z-[5] max-w-7xl mx-auto w-full 
+        md:grid md:grid-cols-12 md:gap-20 lg:gap-24 md:items-center"> {/* Increased gap for more breathing room */}
+
+        {/* ====== TEXT BLOCK - Dominant text size and column usage (7/12) ====== */}
+        <div className="relative z-[5] max-w-xl md:col-span-7 md:max-w-none">
+          {/* MAIN HEADING */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-black leading-tight tracking-tight" // Increased text size on large screens
+          >
+            Crafting <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 via-purple-400 to-cyan-400">Visual Stories</span><br />
+            That Speak.
+          </motion.h1>
+
+          {/* DESCRIPTION */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-gray-300 text-base sm:text-lg lg:text-l xl:text-l mt-4 mb-10 leading-relaxed" // Increased text size and margin on large screens
+          >
+            I design visuals, edits, and motion that connect emotionally and define brand identity.
+            Clean. Modern. Purposeful.
+          </motion.p>
+
+          {/* CTA BUTTONS */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex flex-col sm:flex-row items-start sm:items-center gap-4"
+          >
+            {/* Instagram Button */}
+            <a
+              href="https://www.instagram.com/yeditzzz_"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 bg-gradient-to-r from-fuchsia-500 via-purple-500 to-cyan-400 px-7 py-3 rounded-full text-black font-semibold shadow-[0_0_25px_rgba(236,72,153,0.4)] hover:opacity-90 transition-all text-lg"
+            >
+              <FaInstagram className="text-xl" /> @yedits
+            </a>
+
+            {/* View Work */}
+            <button className="border border-white/25 px-7 py-3 rounded-full hover:bg-white hover:text-black transition-all text-lg">
+              View Work
+            </button>
+          </motion.div>
+        </div>
+
+        {/* ====== IMAGE CARD - Takes remaining columns (5/12) ====== */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.94 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.35 }}
+          className="
+            relative z-[5]
+            w-full max-w-xs sm:max-w-sm mx-auto 
+            mt-12 sm:mt-16 
+            rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.7)] 
+            border border-white/10 backdrop-blur-xl
+            md:col-span-5 md:w-full md:max-w-none md:mx-0 md:mt-0 
+            // Fixed height for better desktop alignment
+            h-[350px] lg:h-[450px] 
+          "
+        >
+          <Image
+            src="/user.jpg"
+            alt="Portfolio Image"
+            width={800}
+            height={800}
+            priority
+            className="w-full h-full object-cover" 
+          />
+
+          {/* Gradient Shine Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+        </motion.div>
+      </div> {/* End Main Content Wrapper */}
+
+      {/* ====== BIG BACKGROUND TYPOGRAPHY (Increased size) ====== */}
       <motion.h2
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.06 }}
-        transition={{ duration: 0.5 }}
-        className="absolute right-2 bottom-10 text-[80px] md:text-[200px] lg:text-[260px] font-black leading-none tracking-tighter select-none"
+        animate={{ opacity: 0.04 }}
+        transition={{ duration: 0.6 }}
+        className="absolute bottom-10 right-4 md:right-12 text-[120px] sm:text-[200px] lg:text-[260px] xl:text-[300px] font-extrabold tracking-tight leading-none select-none pointer-events-none"
       >
         YK
       </motion.h2>

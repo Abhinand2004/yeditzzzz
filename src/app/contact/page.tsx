@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaInstagram, FaEnvelope, FaPaperPlane, FaCheck } from 'react-icons/fa'
-import Footer from '@/components/Footer'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -23,7 +22,6 @@ export default function ContactPage() {
     setIsSubmitting(false)
     setSubmitted(true)
     setFormData({ name: '', email: '', message: '' })
-
     setTimeout(() => setSubmitted(false), 5000)
   }
 
@@ -37,8 +35,16 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="min-h-screen pt-24 bg-black">
-      <section className="pb-20 px-5 sm:px-6">
+    <main className="min-h-screen bg-black pt-24 relative overflow-hidden">
+
+      {/* THEME BACKGROUND EFFECTS */}
+      <div className="pointer-events-none absolute inset-0 z-[0]">
+        <div className="absolute -top-40 left-0 h-80 w-80 bg-fuchsia-500/20 blur-3xl rounded-full" />
+        <div className="absolute bottom-0 right-0 h-96 w-96 bg-cyan-500/20 blur-3xl rounded-full" />
+        <div className="absolute inset-0 opacity-10 [background-image:radial-gradient(circle_at_top,_#ffffff22_0,_transparent_60%),linear-gradient(to_right,_#ffffff0a_1px,_transparent_1px),linear-gradient(to_bottom,_#ffffff0a_1px,_transparent_1px)] [background-size:100%_100%,90px_90px,90px_90px]" />
+      </div>
+
+      <section className="relative z-[5] pb-28 px-5 sm:px-6">
         <div className="max-w-5xl mx-auto">
 
           {/* HEADER */}
@@ -48,43 +54,47 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
             className="mb-14"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-4 tracking-tight leading-tight">
-              Get in Touch
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-tight">
+              Let's Connect
             </h1>
 
-            <div className="w-14 sm:w-16 h-[2px] bg-white mb-6" />
+            <div className="w-24 h-[3px] bg-gradient-to-r from-fuchsia-500 via-purple-400 to-cyan-400 mt-5 mb-6 rounded-full" />
 
             <p className="text-gray-400 text-base sm:text-lg max-w-xl leading-relaxed">
-              Have a project in mind? Let’s work together to create something amazing.
+              Share your ideas, projects, or collaborations. I’ll respond as fast as possible.
             </p>
           </motion.div>
 
-          {/* GRID LAYOUT */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 
             {/* FORM CARD */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-gray-950 border border-white/5 rounded-2xl p-6 sm:p-8"
+              transition={{ duration: 0.6 }}
+              className="bg-black/40 border border-white/10 rounded-2xl p-6 sm:p-8 backdrop-blur-xl relative overflow-hidden"
             >
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-6">
+              {/* Glow corner */}
+              <div className="absolute -top-10 -right-10 h-40 w-40 bg-fuchsia-500/20 blur-3xl rounded-full" />
+
+              <h2 className="text-2xl font-semibold text-white mb-6">
                 Send a Message
               </h2>
 
               {submitted ? (
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
+                  initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   className="bg-white rounded-xl p-8 text-center"
                 >
-                  <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-fuchsia-600 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl">
                     <FaCheck className="text-white text-xl" />
                   </div>
-                  <h3 className="text-xl font-bold text-black mb-1">Message Sent!</h3>
-                  <p className="text-gray-600 text-sm sm:text-base">
-                    Thank you for reaching out. I'll get back to you soon.
+                  <h3 className="text-xl font-bold text-black mb-1">
+                    Message Sent!
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    I’ll get back to you soon.
                   </p>
                 </motion.div>
               ) : (
@@ -92,60 +102,48 @@ export default function ContactPage() {
 
                   {/* NAME */}
                   <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-gray-400 mb-2 text-sm"
-                    >
+                    <label className="block text-gray-400 mb-2 text-sm">
                       Name
                     </label>
                     <input
                       type="text"
-                      id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full bg-black border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-gray-600 focus:border-white/30 focus:outline-none"
+                      className="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-purple-400 transition-all"
                       placeholder="Your name"
                     />
                   </div>
 
                   {/* EMAIL */}
                   <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-gray-400 mb-2 text-sm"
-                    >
+                    <label className="block text-gray-400 mb-2 text-sm">
                       Email
                     </label>
                     <input
                       type="email"
-                      id="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full bg-black border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-gray-600 focus:border-white/30 focus:outline-none"
+                      className="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:border-purple-400 transition-all"
                       placeholder="your@email.com"
                     />
                   </div>
 
                   {/* MESSAGE */}
                   <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-gray-400 mb-2 text-sm"
-                    >
+                    <label className="block text-gray-400 mb-2 text-sm">
                       Message
                     </label>
                     <textarea
-                      id="message"
                       name="message"
+                      rows={5}
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      rows={5}
-                      className="w-full bg-black border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-gray-600 focus:border-white/30 focus:outline-none resize-none"
+                      className="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white text-sm resize-none focus:border-purple-400 transition-all"
                       placeholder="Tell me about your project..."
                     />
                   </div>
@@ -154,16 +152,16 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-white text-black py-3.5 rounded-xl font-semibold text-sm hover:bg-gray-100 transition-all disabled:opacity-50 flex items-center justify-center gap-3"
+                    className="w-full bg-gradient-to-r from-fuchsia-500 via-purple-400 to-cyan-400 text-black py-3.5 rounded-xl font-semibold text-sm hover:opacity-90 transition-all disabled:opacity-50 flex items-center justify-center gap-3 shadow-[0_0_25px_rgba(236,72,153,0.4)]"
                   >
                     {isSubmitting ? (
                       <>
-                        <span className="w-4 h-4 border-2 border-gray-300 border-t-black rounded-full animate-spin" />
+                        <span className="w-4 h-4 border-2 border-gray-200 border-t-transparent rounded-full animate-spin" />
                         Sending...
                       </>
                     ) : (
                       <>
-                        <FaPaperPlane className="text-sm" />
+                        <FaPaperPlane />
                         Send Message
                       </>
                     )}
@@ -173,17 +171,20 @@ export default function ContactPage() {
               )}
             </motion.div>
 
-            {/* RIGHT SIDE CARD */}
+            {/* RIGHT SIDE */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.6 }}
               className="space-y-6"
             >
+
               {/* SOCIAL CARD */}
-              <div className="bg-gray-950 border border-white/5 rounded-2xl p-6 sm:p-8">
-                <h2 className="text-xl sm:text-2xl font-bold text-white mb-6">
-                  Connect with Me
+              <div className="bg-black/40 border border-white/10 rounded-2xl p-6 sm:p-8 backdrop-blur-xl relative overflow-hidden">
+                <div className="absolute -bottom-10 -left-10 h-40 w-40 bg-cyan-500/20 blur-3xl rounded-full" />
+
+                <h2 className="text-2xl font-semibold text-white mb-6">
+                  Connect With Me
                 </h2>
 
                 <div className="space-y-4">
@@ -192,11 +193,10 @@ export default function ContactPage() {
                   <a
                     href="https://instagram.com/yedits"
                     target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-4 bg-black rounded-xl hover:bg-white/5 border border-white/5 transition-all group"
+                    className="flex items-center gap-4 p-4 bg-black/60 rounded-xl border border-white/10 hover:bg-white/5 transition-all group"
                   >
-                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center">
-                      <FaInstagram className="text-black text-lg" />
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-fuchsia-600 to-cyan-400 flex items-center justify-center text-white shadow-lg">
+                      <FaInstagram className="text-lg" />
                     </div>
                     <div>
                       <p className="text-gray-500 text-xs">Instagram</p>
@@ -209,10 +209,10 @@ export default function ContactPage() {
                   {/* EMAIL */}
                   <a
                     href="mailto:contact@yadhukrishnan.com"
-                    className="flex items-center gap-4 p-4 bg-black rounded-xl hover:bg-white/5 border border-white/5 transition-all group"
+                    className="flex items-center gap-4 p-4 bg-black/60 rounded-xl border border-white/10 hover:bg-white/5 transition-all group"
                   >
-                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center">
-                      <FaEnvelope className="text-black text-lg" />
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-fuchsia-600 to-cyan-400 flex items-center justify-center text-white shadow-lg">
+                      <FaEnvelope className="text-lg" />
                     </div>
                     <div>
                       <p className="text-gray-500 text-xs">Email</p>
@@ -221,23 +221,25 @@ export default function ContactPage() {
                       </p>
                     </div>
                   </a>
+
                 </div>
               </div>
 
-              {/* BOTTOM INFO CARD */}
-              <div className="bg-white rounded-2xl p-6 sm:p-8">
-                <h3 className="text-xl sm:text-2xl font-bold text-black mb-3">
-                  Let's Create Together
+              {/* BOTTOM CARD */}
+              <div className="bg-gradient-to-br from-white/95 to-white/90 shadow-xl rounded-2xl p-6 sm:p-8">
+                <h3 className="text-2xl font-semibold text-black mb-3">
+                  Let's Create Something Bold
                 </h3>
-                <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
-                  Whether you need stunning graphics, engaging video content, or creative visual solutions, I’m here to bring your vision to life.
+                <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+                  Need unique graphics, cinematic edits, or animated visuals?
+                  I’ll bring your ideas to life with clean design and strong storytelling.
                 </p>
               </div>
+
             </motion.div>
           </div>
         </div>
       </section>
-
     </main>
   )
 }

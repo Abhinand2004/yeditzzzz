@@ -3,56 +3,73 @@
 import { motion } from 'framer-motion'
 import { FaTrophy, FaBirthdayCake, FaCar, FaGlassCheers } from 'react-icons/fa'
 
-
 const experiences = [
   {
     icon: FaTrophy,
     title: 'Graphic Editor at Trophy Shop',
-    description: 'Created custom trophy designs, certificates, and award graphics. Worked on branding materials, promotional banners, and event signage for various clients.',
+    description:
+      'Designed custom trophies, event certificates, branded banners, and promotional materials for various corporate and school events.',
     period: 'Professional Experience',
   },
   {
     icon: FaBirthdayCake,
     title: 'Freelance Birthday Videos',
-    description: 'Produced creative birthday celebration videos with custom animations, photo montages, and personalized effects. Created memorable keepsakes for special occasions.',
+    description:
+      'Created cinematic birthday edits, animated slideshows, and personalized celebration videos with motion graphics.',
     period: 'Freelance Work',
   },
   {
     icon: FaCar,
-    title: 'Auto Show Video Shoots & Edits',
-    description: 'Captured and edited high-quality videos of automobile exhibitions and car shows. Produced dynamic content showcasing vehicles with professional transitions and effects.',
+    title: 'Auto Show Shoots & Edits',
+    description:
+      'Shot and edited automobile showcase videos with dynamic transitions, slow-motion shots, and high-energy visual storytelling.',
     period: 'Event Coverage',
   },
   {
     icon: FaGlassCheers,
     title: 'Inauguration Event Videos',
-    description: 'Documented and edited inauguration ceremonies and grand opening events. Created polished videos capturing key moments with professional cinematography.',
+    description:
+      'Documented opening ceremonies with professional videography and edited highlight reels capturing the event’s atmosphere.',
     period: 'Event Production',
   },
 ]
 
 export default function ExperiencePage() {
   return (
-    <main className="min-h-screen pt-20 bg-black">
-      <section className="py-20 px-6">
+    <main className="min-h-screen bg-black pt-24 relative overflow-hidden">
+
+      {/* THEME BACKGROUND EFFECTS */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-40 left-0 h-80 w-80 bg-fuchsia-500/20 blur-[120px] rounded-full" />
+        <div className="absolute bottom-0 right-0 h-96 w-96 bg-cyan-500/20 blur-[130px] rounded-full" />
+
+        {/* Grid texture */}
+        <div className="absolute inset-0 opacity-10 [background-image:radial-gradient(circle_at_top,_#ffffff22_0,_transparent_60%),linear-gradient(to_right,_#ffffff0a_1px,_transparent_1px),linear-gradient(to_bottom,_#ffffff0a_1px,_transparent_1px)] [background-size:100%_100%,90px_90px,90px_90px]" />
+      </div>
+
+      <section className="relative px-6 py-24 z-[5]">
         <div className="max-w-5xl mx-auto">
+
+          {/* HEADER */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="mb-20"
           >
-            <h1 className="text-5xl md:text-7xl font-black text-white mb-4 tracking-tight">
+            <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight">
               Experience
             </h1>
-            <div className="w-16 h-[2px] bg-white mb-6" />
-            <p className="text-gray-500 text-lg max-w-2xl">
-              A journey through my professional work in graphic design and video editing, 
-              showcasing diverse projects and creative endeavors.
+
+            <div className="w-24 h-[3px] bg-gradient-to-r from-fuchsia-500 via-purple-400 to-cyan-400 mt-5 mb-6 rounded-full" />
+
+            <p className="text-gray-400 text-lg max-w-2xl">
+              A curated collection of my hands-on work in design, videography, and real-world content production.
             </p>
           </motion.div>
 
-          <div className="space-y-6">
+          {/* EXPERIENCE CARDS */}
+          <div className="space-y-8">
             {experiences.map((exp, index) => (
               <motion.div
                 key={index}
@@ -60,56 +77,41 @@ export default function ExperiencePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative group"
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl p-8 hover:border-purple-400/30 transition-all duration-300"
               >
-                <div className="bg-gray-950 border border-white/5 rounded-2xl p-8 hover:border-white/20 transition-all duration-500">
-                  <div className="flex flex-col md:flex-row gap-6 items-start">
-                    <div className="w-16 h-16 rounded-xl bg-white flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
-                      <exp.icon className="text-black text-2xl" />
-                    </div>
-                    
-                    <div className="flex-1">
-                      <span className="inline-block px-4 py-1.5 text-xs font-medium bg-white/5 text-gray-400 rounded-full mb-4 tracking-wide uppercase">
-                        {exp.period}
-                      </span>
-                      <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-gray-300 transition-colors duration-300">
-                        {exp.title}
-                      </h3>
-                      <p className="text-gray-500 leading-relaxed text-lg">
-                        {exp.description}
-                      </p>
-                    </div>
+                {/* Glow highlight */}
+                <div className="absolute -top-14 -right-14 w-40 h-40 bg-purple-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-50 transition-all duration-500" />
+
+                <div className="flex flex-col md:flex-row gap-6 items-start">
+
+                  {/* ICON BOX */}
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-fuchsia-500 to-cyan-400 flex items-center justify-center shadow-[0_0_25px_rgba(236,72,153,0.45)] group-hover:scale-105 transition-all duration-300">
+                    <exp.icon className="text-black text-2xl" />
+                  </div>
+
+                  {/* CONTENT */}
+                  <div className="flex-1">
+                    <span className="inline-block px-4 py-1.5 text-xs font-medium rounded-full bg-white/5 border border-white/10 text-gray-300 tracking-wide uppercase mb-4">
+                      {exp.period}
+                    </span>
+
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-gray-300 transition-colors">
+                      {exp.title}
+                    </h3>
+
+                    <p className="text-gray-400 text-lg leading-relaxed">
+                      {exp.description}
+                    </p>
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mt-20"
-          >
-            <div className="bg-white rounded-2xl p-10 md:p-12 text-center">
-              <h2 className="text-3xl md:text-4xl font-black text-black mb-4">
-                Looking to collaborate?
-              </h2>
-              <p className="text-gray-600 mb-8 text-lg max-w-lg mx-auto">
-                I'm always open to discussing new projects and creative opportunities.
-              </p>
-              <a
-                href="/contact"
-                className="inline-flex items-center gap-2 bg-black hover:bg-gray-900 text-white px-10 py-4 rounded-full font-semibold transition-all duration-300"
-              >
-                Get in Touch
-              </a>
-            </div>
-          </motion.div>
+     
+
         </div>
       </section>
-      
     </main>
   )
 }

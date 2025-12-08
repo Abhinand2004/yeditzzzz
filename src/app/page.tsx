@@ -3,6 +3,8 @@ import PostersShowcase from '@/components/PostersShowcase'
 import VideoShowcase from '@/components/VideoShowcase'
 import Footer from '@/components/Footer'
 import ExperiencePage from './experience/page'
+
+import SkillsSection from './skills/Page'
 import ContactPage from './contact/page'
 
 export default function Home() {
@@ -12,6 +14,8 @@ export default function Home() {
       <PostersShowcase />
       <VideoShowcase />
       <ExperiencePage/>
+      <SkillsSection/>
+      <ContactPage/>
       <Footer />
     </main>
   )
