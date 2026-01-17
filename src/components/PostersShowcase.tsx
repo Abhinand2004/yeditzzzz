@@ -11,7 +11,9 @@ const posters = [
   { id: 3, src: '/pooramposter.jpg', title: 'Pooram poster' },
   { id: 4, src: '/kallan.jpg', title: 'Warning poster' },
   { id: 5, src: '/trip.jpg', title: 'Trip poster' },
-  { id: 6, src: '/onam.jpg', title: 'Onam' }
+  { id: 6, src: '/onam.jpg', title: 'Onam' },
+  { id: 7, src: '/clgposter.PNG', title: 'Clg-Poster' },
+
 ]
 
 export default function PostersShowcase() {
@@ -151,3 +153,5 @@ export default function PostersShowcase() {
     </section>
   )
 }
+
+

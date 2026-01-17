@@ -10,8 +10,8 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/#posters', label: 'Posters' },
   { href: '/#videos', label: 'Videos' },
-  { href: '/experience', label: 'Experience' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/#experience', label: 'Experience' },
+  { href: '/#contact', label: 'Contact' },
 ]
 
 export default function Navbar() {
