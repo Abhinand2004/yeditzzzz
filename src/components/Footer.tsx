@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { FaInstagram, FaYoutube, FaEnvelope } from 'react-icons/fa'
 
 export default function Footer() {
@@ -9,7 +10,17 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           <div>
-            <h3 className="text-3xl font-black text-white mb-4 tracking-tight">YK</h3>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white/10">
+                <Image
+                  src="/logo.jpeg"
+                  alt="YK Logo"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <h3 className="text-2xl font-black text-white tracking-tight">YK</h3>
+            </div>
             <p className="text-gray-500 leading-relaxed">
               Professional Graphic Designer & Video Editor creating stunning visuals and captivating video content.
             </p>

@@ -1,5 +1,6 @@
 import Hero from '@/components/Hero'
 import PostersShowcase from '@/components/PostersShowcase'
+import BrochuresShowcase from '@/components/BrochuresShowcase'
 import VideoShowcase from '@/components/VideoShowcase'
 import Footer from '@/components/Footer'
 import ExperiencePage from './experience/page'
@@ -12,6 +13,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Hero />
       <PostersShowcase />
+      <BrochuresShowcase />
       <VideoShowcase />
       <ExperiencePage/>
       <SkillsSection/>

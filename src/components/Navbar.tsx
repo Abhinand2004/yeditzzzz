@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FiMenu, FiX } from 'react-icons/fi'
 import { FaInstagram } from 'react-icons/fa'
@@ -9,6 +10,7 @@ import { FaInstagram } from 'react-icons/fa'
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/#posters', label: 'Posters' },
+  { href: '/#brochures', label: 'Brochures' },
   { href: '/#videos', label: 'Videos' },
   { href: '/#experience', label: 'Experience' },
   { href: '/#contact', label: 'Contact' },
@@ -32,8 +34,16 @@ export default function Navbar() {
     }`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="text-2xl font-black text-white tracking-tight hover:opacity-80 transition-opacity">
-            YK
+          <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <div className="relative w-10 h-10 rounded-full overflow-hidden border border-white/10">
+              <Image
+                src="/logo.jpeg"
+                alt="YK Logo"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <span className="text-xl font-black text-white tracking-tight">YK</span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-10">

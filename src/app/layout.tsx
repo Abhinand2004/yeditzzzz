@@ -5,6 +5,9 @@ import Navbar from '@/components/Navbar'
 export const metadata: Metadata = {
   title: 'Yadhukrishnan | Graphic Designer & Video Editor',
   description: 'Portfolio of Yadhukrishnan - Professional Graphic Designer and Video Editor',
+  icons: {
+    icon: '/logo.jpeg',
+  },
 }
 
 export default function RootLayout({
